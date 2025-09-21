@@ -24,10 +24,30 @@ function limpiarInput(elementoID){
 
 function mostrarAmigos(){
   let lista = document.getElementById("listaAmigos");
-  lista.innerHTML = ""; 
+  lista.innerHTML = "";
+  document.getElementById("resultado").innerHTML=""
   amigos.forEach((nombre) => {
     let li = document.createElement("li");
     li.textContent = nombre;
     lista.appendChild(li);
     })
+}
+
+function sortearAmigo(){
+    let largo = amigos.length;
+    console.log(largo)
+    if (largo == 0){
+        alert("No ha ingresado ningun amigo");
+        return
+    }
+    let numero = Math.floor(Math.random()*(largo+1));
+    
+    console.log(numero)
+    let resultado = document.getElementById("resultado");
+    resultado.innerHTML="";
+    let li = document.createElement("li");
+    li.textContent = "El amigo secreto sorteado es: " + amigos[numero];
+    resultado.appendChild(li);
+    amigos=[]
+    document.getElementById("listaAmigos").innerHTML=''
 }
